@@ -1,15 +1,34 @@
+/* stylelint-disable no-descending-specificity */
 .cards > ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: grid;
+  display: flex;
   grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
   grid-gap: 24px;
+  flex-flow: row nowrap;
+  gap: 32px;
+  width: auto;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #ececec #fff;
 }
 
 .cards > ul > li {
-  border: 1px solid #dadada;
-  background-color: var(--background-color);
+  border: 1px solid #ececec;
+  background: #fff; /* Combined background-color and background to avoid shorthand override issue */
+  box-shadow: 0 2px 6px rgb(0 0 0 / 3%);
+  border-radius: 0;
+  box-sizing: border-box;
+  padding: 24px 18px 18px;
+  width: 240px;
+  min-width: 240px;
+  max-width: 240px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  transition: box-shadow 0.2s;
 }
 
 .cards .cards-card-body {
@@ -52,7 +71,6 @@
   }
 }
 
-/* Card styles */
 .cards.cards2 > ul > li {
   background: #fff;
   border: 1px solid #e1e6ef;
@@ -73,8 +91,6 @@
     "image"
     "body";
 }
-
-/* Inner stacking for badge, image, and card body (using CSS Grid for reordering) */
 
 .cards.cards2 .cards-card-body p:first-child {
   grid-area: badge;
@@ -109,7 +125,6 @@
   flex: 1 1 auto;
 }
 
-/* Image sizing */
 .cards.cards2 > ul > li img {
   max-height: 74px;
   width: auto;
@@ -117,7 +132,6 @@
   display: block;
 }
 
-/* Heading styles */
 .cards.cards2 .cards-card-body h3 {
   font-size: 20px;
   color: #1a2352;
@@ -126,7 +140,6 @@
   line-height: 1.22;
 }
 
-/* Paragraph and body text */
 .cards.cards2 .cards-card-body p:not(:first-child) {
   font-size: 15px;
   color: #697089;
@@ -134,7 +147,6 @@
   line-height: 1.5;
 }
 
-/* List styles for features */
 .cards.cards2 .cards-card-body ul {
   padding-left: 0;
   margin: 10px 0 0;
@@ -157,7 +169,58 @@
   font-size: 17px;
 }
 
-/* Tighter space between badge, image, heading, and body for original look */
 .cards.cards2 > ul > li > .cards-card-body p:first-child + h3 {
   margin-top: 0;
+}
+
+
+.cards {
+  background: linear-gradient(to bottom, #f8f8f8 0 60px, #fff 60px 100%);
+  padding-top: 32px;
+  padding-bottom: 32px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Use flexbox for a single row with horizontal scrolling if needed */
+
+.cards > ul::-webkit-scrollbar {
+  height: 8px;
+  background: #fff;
+}
+
+.cards > ul::-webkit-scrollbar-thumb {
+  background: #ececec;
+  border-radius: 4px;
+}
+
+/* Ensure all cards have consistent sizing */
+
+.cards > ul > li:hover {
+  box-shadow: 0 4px 12px rgb(0 0 0 / 6%);
+}
+
+@media (width <= 900px) {
+  .cards > ul > li {
+    width: 200px;
+    min-width: 200px;
+    max-width: 200px;
+  }
+}
+
+@media (width <= 700px) {
+  .cards > ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    overflow-x: visible;
+  }
+
+  .cards > ul > li {
+    width: 96vw;
+    min-width: 0;
+    max-width: 100vw;
+    padding: 18px 6vw;
+  }
 }
