@@ -1,44 +1,49 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find all card <li> elements
-  const list = element.querySelector('.cmp-benefitsoverview__list');
-  if (!list) return;
-  const items = Array.from(list.children).filter(li => li.classList.contains('cmp-benefitsitem'));
+  // Table header matches the block name exactly
+  const headerRow = ['Cards (cards5)'];
+  const cells = [headerRow];
 
-  // Table header: must exactly match example
-  const cells = [['Cards (cards5)']];
+  // Find all card elements
+  const cardElements = element.querySelectorAll('ul.cmp-benefitsoverview__list > li.cmp-benefitsitem');
 
-  items.forEach((item) => {
-    // Image extraction (first column)
-    let img = null;
-    const imageContainer = item.querySelector('.cmp-benefitsitem__image');
-    if (imageContainer) {
-      const foundImg = imageContainer.querySelector('img');
-      if (foundImg) img = foundImg;
+  cardElements.forEach((card) => {
+    // Image: find the first img in the card (mandatory for first column)
+    let image = null;
+    const imageWrapper = card.querySelector('.cmp-benefitsitem__image');
+    if (imageWrapper) {
+      image = imageWrapper.querySelector('img');
     }
 
-    // Text content: tagline, headline, and abstract (second column)
-    const textElements = [];
-    // Tagline
-    const tagline = item.querySelector('.cmp-benefitsitem__tagline');
-    if (tagline) textElements.push(tagline);
-    // Headline (h3)
-    const headline = item.querySelector('.cmp-benefitsitem__headline');
-    if (headline) textElements.push(headline);
-    // Abstract (contains <p> and <ul>)
-    const abstract = item.querySelector('.cmp-benefitsitem__abstract');
-    if (abstract) textElements.push(abstract);
+    // Text Content: tagline, headline, abstract (keep semantic structure)
+    const textContent = [];
 
-    // If all text content missing, push empty string to avoid empty cell
-    let textCell = textElements.length ? textElements : '';
+    // Tagline (reference existing element if present)
+    const taglineDiv = card.querySelector('.cmp-benefitsitem__tagline');
+    if (taglineDiv) {
+      textContent.push(taglineDiv);
+    }
 
+    // Headline (reference existing element if present)
+    const headline = card.querySelector('.cmp-benefitsitem__headline');
+    if (headline) {
+      textContent.push(headline);
+    }
+
+    // Abstract (reference existing element if present)
+    const abstract = card.querySelector('.cmp-benefitsitem__abstract');
+    if (abstract) {
+      textContent.push(abstract);
+    }
+
+    // Add row: [image, [tagline, headline, abstract]]
     cells.push([
-      img || '',
-      textCell
+      image || '',
+      textContent
     ]);
   });
 
-  // Create and replace with block table
-  const table = WebImporter.DOMUtils.createTable(cells, document);
-  element.replaceWith(table);
+  // Create and replace with the block table
+  const block = WebImporter.DOMUtils.createTable(cells, document);
+  element.replaceWith(block);
 }
