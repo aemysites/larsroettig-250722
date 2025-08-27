@@ -1,48 +1,37 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // The block name for the header row, exactly as specified
+  // Table header: use block name exactly as given
   const headerRow = ['Cards (cards4)'];
+  const rows = [headerRow];
 
-  // Find the heading text, if available
-  let headingContent = null;
-  const headingEl = element.querySelector('.cmp-text h4');
-  if (headingEl && headingEl.textContent.trim()) {
-    // Reference existing heading element
-    headingContent = headingEl;
+  // Find title (h4) if present
+  let title = null;
+  const h4 = element.querySelector('h4');
+  if (h4) {
+    title = h4;
   }
 
-  // Cards: find all logo images in cards row
-  // Locate the innermost container with all the .cmp-basic-image
-  let cardImagesParent = null;
-  const containers = Array.from(element.querySelectorAll('.cmp-container'));
-  for (const cont of containers) {
-    const images = cont.querySelectorAll('.cmp-basic-image');
-    if (images.length >= 5) {
-      cardImagesParent = cont;
-      break;
-    }
-  }
-  if (!cardImagesParent) {
-    // fallback, use root element
-    cardImagesParent = element;
-  }
-  const cardImages = Array.from(cardImagesParent.querySelectorAll('.cmp-basic-image'));
+  // Find all logo cards (images)
+  // Each .cmp-image corresponds to a company logo
+  const imageBlocks = Array.from(element.querySelectorAll('.cmp-image'));
 
-  const rows = [];
-  // Only add heading row if heading is present
-  if (headingContent) {
-    rows.push([headingContent]);
+  // Edge case: If no images found, do nothing
+  if (imageBlocks.length === 0) {
+    // Nothing to output
+    return;
   }
-  // Each card gets a row. Only image per card here.
-  cardImages.forEach(imgBlock => {
-    const img = imgBlock.querySelector('img');
-    if (img) {
-      rows.push([img]);
-    }
+
+  // If title exists, put as a single row after header
+  if (title) {
+    rows.push([title]);
+  }
+
+  // For each logo, create a row in the table (1 column, image only)
+  imageBlocks.forEach(imgBlock => {
+    rows.push([imgBlock]);
   });
 
-  // Compose array for the table: header, then content rows
-  const cells = [headerRow, ...rows];
-  const blockTable = WebImporter.DOMUtils.createTable(cells, document);
-  element.replaceWith(blockTable);
+  // Create table block and replace the original element
+  const table = WebImporter.DOMUtils.createTable(rows, document);
+  element.replaceWith(table);
 }
