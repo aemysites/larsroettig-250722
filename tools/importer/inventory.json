@@ -62,8 +62,11 @@
       ]
     },
     {
-      "name": "unknown",
+      "name": "Columns",
       "cluster": 3,
+      "source": "Columns",
+      "target": "Columns",
+      "key": "columns3",
       "instances": [
         {
           "url": "https://www.teamviewer.com/de/pricing/overview/",
