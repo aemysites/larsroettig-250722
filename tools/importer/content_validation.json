@@ -1,0 +1,311 @@
+{
+  "fragments": [
+    {
+      "name": "nav",
+      "path": "/nav",
+      "totalBoxes": 1,
+      "instances": [
+        {
+          "url": "https://www.teamviewer.com/de/pricing/overview/",
+          "urlHash": "44c56bf58aae411066ce78d92f1a19ca7f46c780",
+          "uuid": "44c56bf5-00-6419c5482dba87d55497e10067ddb965e78fe885",
+          "xpath": "/html[1]/body[1]/div[2]"
+        }
+      ],
+      "styles": {
+        "height": 512
+      }
+    },
+    {
+      "name": "footer",
+      "path": "/footer",
+      "totalBoxes": 1,
+      "instances": [
+        {
+          "url": "https://www.teamviewer.com/de/pricing/overview/",
+          "urlHash": "44c56bf58aae411066ce78d92f1a19ca7f46c780",
+          "uuid": "44c56bf5-13-896f2b365c74f1d234b53259d15c6973065a664f",
+          "xpath": "/html[1]/body[1]/div[4]/div[1]/div[1]/footer[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]",
+          "differences": [
+            {
+              "element_id": "html__body__div_4__div__div__footer__div__div__div__div_2__div__div_3",
+              "differences": [
+                {
+                  "change_type": "equal",
+                  "text": "Datenschutzinformationen Kontakt EULA / AVV Produktbeschreibung (EN) Impressum Erkl\u00e4rung zur Barrierefreiheit Cookie-Einstellungen"
+                }
+              ],
+              "dissimilarity_score": -0.0
+            }
+          ],
+          "similarity_score": 0.0
+        }
+      ],
+      "styles": {
+        "background": "rgb(5, 10, 82) none repeat scroll 0% 0% / auto padding-box border-box"
+      }
+    }
+  ],
+  "blocks": [
+    {
+      "name": "unknown",
+      "cluster": 1,
+      "instances": [
+        {
+          "url": "https://www.teamviewer.com/de/pricing/overview/",
+          "urlHash": "44c56bf58aae411066ce78d92f1a19ca7f46c780",
+          "uuid": "44c56bf5-01-c037f8194b41885fa8656dce4b156d83c62e5579",
+          "xpath": "/html[1]/body[1]/div[4]/div[1]/div[1]/header[1]"
+        }
+      ]
+    },
+    {
+      "name": "Cards",
+      "cluster": 2,
+      "source": "Cards",
+      "target": "Cards (cards2)",
+      "key": "cards2",
+      "instances": [
+        {
+          "url": "https://www.teamviewer.com/de/pricing/overview/",
+          "urlHash": "44c56bf58aae411066ce78d92f1a19ca7f46c780",
+          "uuid": "44c56bf5-03-b6337628ed5aceb6d5bb83d429f64f00931988c3",
+          "xpath": "/html[1]/body[1]/div[4]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]"
+        }
+      ]
+    },
+    {
+      "name": "unknown",
+      "cluster": 3,
+      "instances": [
+        {
+          "url": "https://www.teamviewer.com/de/pricing/overview/",
+          "urlHash": "44c56bf58aae411066ce78d92f1a19ca7f46c780",
+          "uuid": "44c56bf5-04-bb9206c950b90849bcafe6d11dbc1dbadd6a12d2",
+          "xpath": "/html[1]/body[1]/div[4]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]",
+          "section": "section-1"
+        }
+      ]
+    },
+    {
+      "name": "Cards",
+      "cluster": 4,
+      "source": "Cards",
+      "target": "Cards (cards4)",
+      "key": "cards4",
+      "instances": [
+        {
+          "url": "https://www.teamviewer.com/de/pricing/overview/",
+          "urlHash": "44c56bf58aae411066ce78d92f1a19ca7f46c780",
+          "uuid": "44c56bf5-05-c189bf4cd2c89013065963145062a2412df2a3f8",
+          "xpath": "/html[1]/body[1]/div[4]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]",
+          "section": "section-2"
+        }
+      ]
+    },
+    {
+      "name": "Cards",
+      "cluster": 5,
+      "source": "Cards",
+      "target": "Cards (cards5)",
+      "key": "cards5",
+      "instances": [
+        {
+          "url": "https://www.teamviewer.com/de/pricing/overview/",
+          "urlHash": "44c56bf58aae411066ce78d92f1a19ca7f46c780",
+          "uuid": "44c56bf5-07-3c6e98475ff65a10444198db48c47cc976e290ba",
+          "xpath": "/html[1]/body[1]/div[4]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]",
+          "section": "section-2"
+        }
+      ]
+    },
+    {
+      "name": "Accordion",
+      "cluster": 6,
+      "source": "Accordion",
+      "target": "Accordion",
+      "key": "accordion6",
+      "instances": [
+        {
+          "url": "https://www.teamviewer.com/de/pricing/overview/",
+          "urlHash": "44c56bf58aae411066ce78d92f1a19ca7f46c780",
+          "uuid": "44c56bf5-09-8f947fa8939802da4ae6e985fa7ea35aa652a258",
+          "xpath": "/html[1]/body[1]/div[4]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]"
+        }
+      ]
+    },
+    {
+      "name": "Cards",
+      "cluster": 7,
+      "source": "Cards",
+      "target": "Cards (cards7)",
+      "key": "cards7",
+      "instances": [
+        {
+          "url": "https://www.teamviewer.com/de/pricing/overview/",
+          "urlHash": "44c56bf58aae411066ce78d92f1a19ca7f46c780",
+          "uuid": "44c56bf5-11-1f2e7c92b6a4d603c473fe49a75681d93db6932a",
+          "xpath": "/html[1]/body[1]/div[4]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]"
+        }
+      ]
+    },
+    {
+      "name": "unknown",
+      "cluster": 8,
+      "instances": [
+        {
+          "url": "https://www.teamviewer.com/de/pricing/overview/",
+          "urlHash": "44c56bf58aae411066ce78d92f1a19ca7f46c780",
+          "uuid": "44c56bf5-12-69472a1fb87d2ca565eab72b7daf43cbfbf2e7cd",
+          "xpath": "/html[1]/body[1]/div[4]/div[1]/div[1]/footer[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]",
+          "section": "section-3"
+        }
+      ]
+    }
+  ],
+  "outliers": [
+    {
+      "url": "https://www.teamviewer.com/de/pricing/overview/",
+      "urlHash": "44c56bf58aae411066ce78d92f1a19ca7f46c780",
+      "uuid": "44c56bf5-00-6419c5482dba87d55497e10067ddb965e78fe885",
+      "xpath": "/html[1]/body[1]/div[2]"
+    },
+    {
+      "url": "https://www.teamviewer.com/de/pricing/overview/",
+      "urlHash": "44c56bf58aae411066ce78d92f1a19ca7f46c780",
+      "uuid": "44c56bf5-02-bd0f3cb64b813c40ff632c176a402b1dc719bdf9",
+      "xpath": "/html[1]/body[1]/div[4]/div[1]/div[1]/div[1]"
+    },
+    {
+      "url": "https://www.teamviewer.com/de/pricing/overview/",
+      "urlHash": "44c56bf58aae411066ce78d92f1a19ca7f46c780",
+      "uuid": "44c56bf5-06-e5f902d46c0bafb5d13754111ae69ab605880a8f",
+      "xpath": "/html[1]/body[1]/div[4]/div[1]/div[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]",
+      "section": "section-2"
+    },
+    {
+      "url": "https://www.teamviewer.com/de/pricing/overview/",
+      "urlHash": "44c56bf58aae411066ce78d92f1a19ca7f46c780",
+      "uuid": "44c56bf5-08-00efca7c13cddfe693ced721dc8ddffa38a8fdaf",
+      "xpath": "/html[1]/body[1]/div[4]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]"
+    },
+    {
+      "url": "https://www.teamviewer.com/de/pricing/overview/",
+      "urlHash": "44c56bf58aae411066ce78d92f1a19ca7f46c780",
+      "uuid": "44c56bf5-10-77d385dc1eda748343fca09c8aab2d96e97b38c0",
+      "xpath": "/html[1]/body[1]/div[4]/div[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]"
+    },
+    {
+      "url": "https://www.teamviewer.com/de/pricing/overview/",
+      "urlHash": "44c56bf58aae411066ce78d92f1a19ca7f46c780",
+      "uuid": "44c56bf5-13-896f2b365c74f1d234b53259d15c6973065a664f",
+      "xpath": "/html[1]/body[1]/div[4]/div[1]/div[1]/footer[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[3]",
+      "section": "section-3",
+      "differences": [
+        {
+          "element_id": "html__body__div_4__div__div__footer__div__div__div__div_2__div__div_3",
+          "differences": [
+            {
+              "change_type": "equal",
+              "text": "Datenschutzinformationen Kontakt EULA / AVV Produktbeschreibung (EN) Impressum Erkl\u00e4rung zur Barrierefreiheit Cookie-Einstellungen"
+            }
+          ],
+          "dissimilarity_score": -0.0
+        }
+      ],
+      "similarity_score": 0.0
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://www.teamviewer.com/de/pricing/overview/",
+      "differences": [
+        {
+          "change_type": "equal",
+          "text": "Please visit your local page for information and offerings dedicated for your country. Bitte besuchen Sie Ihre lokale Seite f\u00fcr Informationen und Angebote speziell f\u00fcr Ihr Land. TeamViewer United States Bei TeamViewer Deutschland bleiben"
+        },
+        {
+          "change_type": "deletion",
+          "text": " +49 7161 60692 50 F\u00fcr gro\u00dfe Unternehmen Support Support kontaktieren Dokumente Knowledge Base System Status (EN) Personalisierte Module F\u00fcr Entwickler Community \u00dcber uns Unternehmen Karriere (EN) Investoren Newsroom Unternehmensleitung Sportpartnerschaften Nachhaltigkeit und CSR Vertrieb kontaktieren Anmelden Web-App \u00f6ffnen Management Console Ticket Kundenportal +49 7161 60692 50 Produkte TeamViewer Remote Verbinden Sie sich jederzeit mit jedem Ger\u00e4t, um Ihre IT zu verwalten und zu \u00fcberwachen \u2013 mit der bew\u00e4hrten L\u00f6sung f\u00fcr Remote-Zugriff und Support. Remote entdecken TeamViewer Tensor Skalieren, verwalten und sichern Sie Ihren Support effizient mit unserer Remote-Connectivity-Plattform speziell entwickelt f\u00fcr gro\u00dfe Unternehmen. Tensor entdecken TeamViewer DEX Identifizieren und beheben Sie IT-Probleme, bevor sie sich auf Ihre Mitarbeitenden auswirken. Steigern Sie Ihre Produktivit\u00e4t und senken Sie Kosten durch proaktiven IT-Support. DEX entdecken TeamViewer Frontline Unterst\u00fctzen Sie Ihre Mitarbeitenden und optimieren Sie Ihre Prozesse mit unserer industriellen Augmented-Reality-Plattform. \u200cFrontline entdecken Mehr erfahren Remote Management Asset Management \u200cZus\u00e4tzliche L\u00f6sungen Eingebettete Ger\u00e4te Smart Service Plattform TeamViewer ONE TeamViewer ONE vereint die DEX-Funktionen von 1E und die Konnektivit\u00e4tsl\u00f6sungen von TeamViewer in einer proaktiv operierenden IT-Plattform: Sie bietet Remote-Support, Transparenz, KI-gest\u00fctztes Monitoring und automatische Fehlerbehebung \u2013 und das unabh\u00e4ngig davon, ob 500 oder 500.000 Ger\u00e4te stets funktionsf\u00e4hig sein m\u00fcssen. TeamViewer ONE entdecken Sprechen Sie mit unserem Team M\u00f6chten Sie die digitalen Arbeitspl\u00e4tze in Ihrem Unternehmen noch besser machen? Was w\u00e4re, wenn Ihre IT alles, was sie ben\u00f6tigt, auf einer Plattform finden k\u00f6nnte? Sprechen Sie mit unserem Team: Wir zeigen Ihnen, was TeamViewer ONE in Ihrem Unternehmen bewirken kann. Sprechen Sie mit unserem Team Zentrale Features Endpoint Automation Intelligent Insights Software Reclaim Business Impact Device Refresh Patch Insights L\u00f6sungen Nach Branchen Automobilindustrie Landwirtschaft Logistik Produktion Einzelhandel Gesundheitswesen Bank- und Finanzwesen Nach Anwendungsf\u00e4llen Remote-Zugriff Remote-Steuerung Remote Desktop NPOs und Bildungseinrichtungen Wake-on-LAN Bildschirmfreigabe Aftersales-Service Vision Picking Nach Rollen Privater Gebrauch Kleine und mittlere Unternehmen Gro\u00dfe Unternehmen Managed Service Provider Erstausr\u00fcster (OEMs) Ressourcen News und Insights Erfolgsgeschichten Events & Webinare Trust Center Partner Partner werden Partner finden Integrationspartner Preise Jetzt kaufen Jetzt kaufen Angebot anfordern NPOs und Bildungseinrichtungen Lizenz-Upgrade W\u00e4hlen Sie Ihre Lizenz F\u00fcr Einzelpersonen F\u00fcr Teams F\u00fcr gro\u00dfe Unternehmen BELIEBT BEI EINZELPERSONEN Lizenzen vergleichen F\u00fchrende Unternehmen weltweit vertrauen auf uns Erweitern Sie TeamViewer um diese praktischen Add-ons Die Add-ons k\u00f6nnen beim Kaufabschluss hinzugef\u00fcgt werden. 30 Tage kostenlos testen Asset Management Identifizieren und verwalten Sie jedes Ger\u00e4t, jede Software und jedes verborgene Asset in Ihrem Netzwerk. Ihre Vorteile: Assets identifizieren und inventarisieren Ger\u00e4te von \u00fcberall aus verwalten und warten Umfassende Einblicke und Reportings 30 Tage kostenlos testen Endpoint Protection Sch\u00fctzen Sie Ihre Ger\u00e4te vor Malware, Ransomware, Zero-Day-Exploits und mehr. Ihre Vorteile: Zuverl\u00e4ssige Leistung Vollst\u00e4ndiger Schutz vor Bedrohungen R\u00fcckwirkender Zugriff auf Daten bis zu 72 Stunden nach der Infektion 30 Tage kostenlos testen Device Monitoring Vermeiden Sie unn\u00f6tige Ausfallzeiten und stellen Sie sicher, dass Ihre IT-Systeme zuverl\u00e4ssig, sicher und reibungslos funktionieren. Ihre Vorteile: Individuelle Richtlinien f\u00fcr das Monitoring Ausf\u00fchrung von Remote-Skripten Sofortige Alarme 30 Tage kostenlos testen TeamViewer Assist AR Lite AR-gest\u00fctzte Remote-Unterst\u00fctzung. Ihre Vorteile: 3D-Markierungen Texterkennung Verbindungsprotokolle und Reporting 30 Tage kostenlos testen Mobile Device Management Vereinfachen Sie die Einbindung, Verwaltung und \u00dcberwachung Ihrer mobilen Ger\u00e4te. Ihre Vorteile: Neue Ger\u00e4te einbinden Zugriff auf Bestands\u00fcbersicht, Reportings und Dashboards Compliance und Einheitlichkeit gew\u00e4hrleisten Granulare Kontrolle behalten BELIEBT BEI KLEINEN TEAMS Lizenzen vergleichen Lizenzen vergleichen F\u00fchrende Unternehmen weltweit vertrauen auf uns Erweitern Sie TeamViewer um diese praktischen Add-ons Die Add-ons k\u00f6nnen beim Kaufabschluss hinzugef\u00fcgt werden. 30 Tage kostenlos testen Asset Management Identifizieren und verwalten Sie jedes Ger\u00e4t, jede Software und jedes verborgene Asset in Ihrem Netzwerk. Ihre Vorteile: Assets identifizieren und inventarisieren Ger\u00e4te von \u00fcberall aus verwalten und warten Umfassende Einblicke und Reportings 30 Tage kostenlos testen Endpoint Protection Sch\u00fctzen Sie Ihre Ger\u00e4te vor Malware, Ransomware, Zero-Day-Exploits und mehr. Ihre Vorteile: Zuverl\u00e4ssige Leistung Vollst\u00e4ndiger Schutz vor Bedrohungen R\u00fcckwirkender Zugriff auf Daten bis zu 72 Stunden nach der Infektion 30 Tage kostenlos testen Device Monitoring Vermeiden Sie unn\u00f6tige Ausfallzeiten und stellen Sie sicher, dass Ihre IT-Systeme zuverl\u00e4ssig, sicher und reibungslos funktionieren. Ihre Vorteile: Individuelle Richtlinien f\u00fcr das Monitoring Ausf\u00fchrung von Remote-Skripten Sofortige Alarme 30 Tage kostenlos testen TeamViewer Assist AR Lite AR-gest\u00fctzte Remote-Unterst\u00fctzung. Ihre Vorteile: 3D-Markierungen Texterkennung Verbindungsprotokolle und Reporting 30 Tage kostenlos testen Mobile Device Management Vereinfachen Sie die Einbindung, Verwaltung und \u00dcberwachung Ihrer mobilen Ger\u00e4te. Ihre Vorteile: Neue Ger\u00e4te einbinden Zugriff auf Bestands\u00fcbersicht, Reportings und Dashboards Compliance und Einheitlichkeit gew\u00e4hrleisten Granulare Kontrolle behalten TeamViewer Tensor TeamViewer Tensor ist eine Cloud-Plattform f\u00fcr Remote-Konnektivit\u00e4t, mit der Unternehmen schnell und einfach von \u00fcberall und jederzeit auf jedes Ger\u00e4t und jede Maschine zugreifen k\u00f6nnen, um diese zu steuern und Support zu leisten. Vollst\u00e4ndig angepasste Lizenz Zus\u00e4tzliche Features f\u00fcr gro\u00dfe Unternehmen Single Sign-on (SSO) TeamViewer DEX {{tooltip:dex-essentials-attributes}} Mobiles SDK (Add-on) Enterprise-Integrationspaket (Add-on) TeamViewer Intelligence Erweiterte Massenbereitstellung (MSI) Auditability (Audit Logs und API) Premium 24-Stunden-Support verf\u00fcgbar (SLA erforderlich) Gemeinsam finden wir die perfekte L\u00f6sung Kontaktieren Sie uns Vorname Nachname E-Mail-Adresse gesch\u00e4ftlich Telefonnummer gesch\u00e4ftlich Position Gesch\u00e4ftsleitung Vice President Director Leitende/r Angestellte/r Nicht leitende/r Angestellte/r Ingenieur/in oder Entwickler/in Name des Unternehmens Anzahl der Besch\u00e4ftigten 1 - 5 6 - 25 26 - 100 101 - 500 501 - 1000 1001 - 2500 2501 - 5000 5001 + Bitte teilen Sie uns Ihre Anforderungen mit Country State Alabama Alaska Arizona Arkansas California Colorado Connecticut Delaware Florida Georgia Hawaii Idaho Illinois Indiana Iowa Kansas Kentucky Louisiana Maine"
+        },
+        {
+          "change_type": "equal",
+          "text": " "
+        },
+        {
+          "change_type": "deletion",
+          "text": "Maryland Massachusetts Michigan Minnesota Mississippi Missouri Montana Nebraska Nevada New Hampshire New Jersey New Mexico New York North Carolina North Dakota Ohio Oklahoma Oregon Pennsylvania Rhode Island South Carolina South Dakota Tennessee Texas Utah Vermont Virginia Washington West Virginia Wisconsin Wyoming Abteilung Buchhaltung Kundendienst Personal Gesch\u00e4ftsleitung/Vorstand IT Rechtsabteilung Marketing Operatives Gesch\u00e4ft und Distribution Forschung Vertrieb Andere Branchen Automobilindustrie Bildung Energie Finanzdienstleistungen Informationstechnologie Biowissenschaften Logistik/Lieferketten Produktion Einzelhandel Andere Ich stimme zu, dass TeamViewer meine personenbezogenen Daten gem\u00e4\u00df der allgemeinen Datenschutzerkl\u00e4rung von TeamViewer zu den folgenden Zwecken verarbeiten darf: (1) Zusendung von Informationen zu Angeboten, Produkten, Dienstleistungen, Aktionen u. \u00e4.; (2) Nachverfolgung von \u00d6ffnungs-, Klick- und Antwortdaten, um mir eine personalisierte Erfahrung anbieten zu k\u00f6nnen Meine Einwilligung kann ich jederzeit mit Wirkung f\u00fcr die Zukunft widerrufen. Datenschutzrichtlinie anzeigen Absenden Absenden ... utmCampaign utmContent utmMedium utmTerm utmSource language pageUrl formId programId lastProgramId cookie jwtToken Ihre Nachricht wurde erfolgreich gesendet Danke, dass Sie uns kontaktiert haben! Wir werden uns in K\u00fcrze bei Ihnen melden. Zur\u00fcck Schlie\u00dfen Ihre Nachricht konnte nicht gesendet werden Bitte versuchen Sie es sp\u00e4ter erneut oder setzen Sie sich direkt mit uns in Verbindung. Zur\u00fcck Schlie\u00dfen oder wenden Sie sich an den Vertrieb unter +49 7161 60692 50 Lizenzen vergleichen TeamViewer Tensor F\u00fchrende Unternehmen weltweit vertrauen auf uns H\u00e4ufig gestellte Fragen Wie funktioniert das Preismodell von TeamViewer? TeamViewer bietet Abonnements, die j\u00e4hrlich bezahlt und verl\u00e4ngert werden. Ben\u00f6tigen alle, die an einer Session teilnehmen, eine geb\u00fchrenpflichtige Lizenz? Nein. Nur die Person, die Support leistet, ben\u00f6tigt eine Lizenz. F\u00fcr die Personen, die Support erhalten, ist keine Lizenz erforderlich. Welche Zahlungsmethoden akzeptiert TeamViewer? TeamViewer akzeptiert Zahlungen mit Visa, Mastercard, American Express, JCB und PayPal. In Deutschland, \u00d6sterreich und der Schweiz werden au\u00dferdem Bank\u00fcberweisungen akzeptiert. Was ist TeamViewer Intelligence? Nutzen Sie TeamViewer Intelligence, um Daten zu analysieren \u2013 von Screenshots bis hin zu Fehlerprotokollen. So finden Sie Fehler, identifizieren optimale Verfahren, verbessern den Wissenstransfer und beheben Probleme umgehend. TeamViewer CoPilot: Mit unserem KI-gest\u00fctzten NLP-Chatbot k\u00f6nnen Sie Probleme noch schneller finden und beheben. Er liefert Ihnen au\u00dferdem in Echtzeit Informationen zum jeweiligen Ger\u00e4t. TeamViewer Session Insights: Unsere KI-gest\u00fctzte Protokollfunktion erstellt unter anderem eine Zusammenfassung f\u00fcr jeden Supportfall, erkennt Muster und hebt wichtige Erkenntnisse hervor. Was ist DEX Essentials? Mit DEX Essentials sind IT-Teams Problemen immer einen Schritt voraus: Durch Echtzeit-\u00dcbersichten, praktische Einblicke und eine automatisierte Fehlerbehebung. DEX Essentials erm\u00f6glicht es, so unterschiedliche Aspekte wie Leistung, Anwendungen, Betriebssysteme, Sicherheit und Netzwerke stets im Blick zu behalten und auftretende Probleme proaktiv zu beheben. Dadurch wird der Arbeitsaufwand reduziert und Ausf\u00e4lle werden verhindert, auch ohne gro\u00dfes Team oder komplexe Technologie. Was kann ich tun, wenn ich keine Lizenz finde, die meinen Anforderungen entspricht? Unser Vertriebsteam steht Ihnen bei allen Fragen rund um unsere Produkte gerne zur Verf\u00fcgung. Wie kann ich mein Abonnement und meine Lizenz k\u00fcndigen? Ihr Abonnement verl\u00e4ngert sich automatisch alle 12 Monate, sofern Sie es nicht sp\u00e4testens 28 Tage vor Ende der ersten beziehungsweise der jeweiligen Folgelaufzeit k\u00fcndigen. Benachrichtigen Sie uns hierzu in Schriftform oder reichen Sie ein Support-Ticket ein. Wie werden die Preise f\u00fcr Add-ons berechnet? Die Preise f\u00fcr die Add-on-Lizenzen richten sich nach der Anzahl der Endpunkte beziehungsweise der User oder dem ben\u00f6tigten Speicherplatz. Wir bieten au\u00dferdem Mengenrabatte an. Um den Endpreis zu erfahren, geben Sie einfach die erforderlichen Angaben an. Sie k\u00f6nnen sich auch gerne direkt an uns wenden, um ein Angebot zu erhalten. Was sind gleichzeitige Verbindungen (Kan\u00e4le)? Gleichzeitige Verbindungen beziehen sich auf die Anzahl der einzelnen User, die eine ausgehende Verbindung herstellen k\u00f6nnen. Was ist ein verwaltetes Ger\u00e4t? Verwaltete Ger\u00e4te sind alle einem Unternehmenskonto zugeordneten Ger\u00e4te, die unter dem gleichen Unternehmensprofil zentral von einem Admin verwaltet werden. Was ist ein lizenzierter User? Als lizenzierte User werden Personen bezeichnet, die einer bestimmten Lizenz zugewiesen sind und \u00fcber diese Lizenz Verbindungen herstellen k\u00f6nnen. Was ist ein Endpunkt? Ein Endpunkt ist ein Ger\u00e4t, das mit TeamViewer verbunden ist. Sicherheit made in Germany Branchenf\u00fchrende Sicherheit Unsere Software und IT-Infrastruktur erf\u00fcllen h\u00f6chste Standards. Unsere"
+        },
+        {
+          "change_type": "insertion",
+          "text": "404"
+        },
+        {
+          "change_type": "equal",
+          "text": " "
+        },
+        {
+          "change_type": "deletion",
+          "text": "Infrastruktur"
+        },
+        {
+          "change_type": "insertion",
+          "text": "Page"
+        },
+        {
+          "change_type": "equal",
+          "text": " "
+        },
+        {
+          "change_type": "deletion",
+          "text": "verf\u00fcgt"
+        },
+        {
+          "change_type": "insertion",
+          "text": "Not"
+        },
+        {
+          "change_type": "equal",
+          "text": " "
+        },
+        {
+          "change_type": "deletion",
+          "text": "\u00fcber"
+        },
+        {
+          "change_type": "insertion",
+          "text": "Found"
+        },
+        {
+          "change_type": "equal",
+          "text": " "
+        },
+        {
+          "change_type": "deletion",
+          "text": "eine"
+        },
+        {
+          "change_type": "insertion",
+          "text": "Go"
+        },
+        {
+          "change_type": "equal",
+          "text": " "
+        },
+        {
+          "change_type": "deletion",
+          "text": "Vielzahl von Sicherheitsfunktionen und wurde durch zahlreiche Zertifizierungen in ihrer Sicherheit best\u00e4tigt. Erstklassiger Datenschutz Als globales Technologieunternehmen mit Wurzeln in Deutschland ist uns der Schutz der Daten unserer User und Kundschaft besonders wichtig. Unser Datenschutz-Team sorgt kontinuierlich daf\u00fcr, dass alle geltenden Vorschriften, wie beispielsweise die der EU-Datenschutzgrundverordnung (DSGVO), eingehalten werden. Konsequenter Schutz vor Missbrauch TeamViewer nimmt die Sicherheit seiner User sehr ernst. Mehrere Sicherheitsfunktionen sch\u00fctzen Sie vor unberechtigtem Zugriff. Zudem k\u00f6nnen nur User mit verifizierten Konten eine Verbindung herstellen. Bitte w\u00e4hlen Sie Ihre Region Wenn Sie eine Region ausw\u00e4hlen, \u00e4ndert sich die Sprache und/oder der Inhalt auf teamviewer.com VORGESCHLAGENE REGION United States - English Americas Americas - English Am\u00e9rica Latina - Espa\u00f1ol Brasil - Portugu\u00eas Canada - English Canada - Fran\u00e7ais United States - English Asia Pacific Asia Pacific - English Australia - English \u4e2d\u56fd - \u4e2d\u2f42\uff08\u7b80\u4f53\uff09 \u9999\u6e2f - \u7e41\u9ad4\u4e2d\u6587 India - English \u65e5\u672c - \u2f47\u672c\u8a9e New Zealand - English \ub300\ud55c\ubbfc\uad6d - \ud55c\uad6d\uc5b4 \u53f0\u7063-\u7e41\u9ad4\u4e2d\u6587 \u0e1b\u0e23\u0e30\u0e40\u0e17\u0e28\u0e44\u0e17\u0e22 - \u0e20\u0e32\u0e29\u0e32\u0e44\u0e17\u0e22 Vi\u1ec7t Nam - Ti\u1ebfng Vi\u1ec7t Commonwealth of Independent States CIS - English \u0421\u041d\u0413 - \u0420\u0443\u0441\u0441\u043a\u0438\u0439 Europe Europe - English Belgique - Fran\u00e7ais Belgi\u00eb - Nederlands Bulgaria - English Croatia - English Cyprus - English Czechia - \u010ce\u0161tina Denmark - English Deutschland - Deutsch Espa\u00f1a - Espa\u00f1ol Estonia - English Finland - English France - Fran\u00e7ais Greece - English Ireland - English Italia - Italiano Latvia - English Liechtenstein - Deutsch Liechtenstein - Fran\u00e7ais Liechtenstein - Italiano Lithuania - English Luxembourg - Fran\u00e7ais Magyarorsz\u00e1g - Magyar Malta - English Nederland - Nederlands Norway - English \u00d6sterreich - Deutsch Polska - Polski Portugal - Portugu\u00eas Romania - English Schweiz - Deutsch Suisse - Fran\u00e7ais Svizzera - Italiano Slovakia - English Slovenia - English Sweden - English T\u00fcrkiye - T\u00fcrk\u00e7e United Kingdom - English Middle East Africa Middle East Africa - English Middle East Africa - Fran\u00e7ais Region \u00e4ndern"
+        },
+        {
+          "change_type": "insertion",
+          "text": "home"
+        },
+        {
+          "change_type": "equal",
+          "text": " Datenschutzinformationen Kontakt EULA / AVV Produktbeschreibung (EN) Impressum Erkl\u00e4rung zur Barrierefreiheit Cookie-Einstellungen"
+        }
+      ],
+      "similarity_score": 0.23799768831642906
+    }
+  ]
+}
