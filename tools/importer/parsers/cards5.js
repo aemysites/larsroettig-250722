@@ -1,58 +1,44 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // 1. Table header EXACT match
-  const headerRow = ['Cards (cards5)'];
-  const cells = [headerRow];
+  // Find all card <li> elements
+  const list = element.querySelector('.cmp-benefitsoverview__list');
+  if (!list) return;
+  const items = Array.from(list.children).filter(li => li.classList.contains('cmp-benefitsitem'));
 
-  // 2. Get the cards list
-  const ul = element.querySelector('ul.cmp-benefitsoverview__list');
-  if (!ul) return;
+  // Table header: must exactly match example
+  const cells = [['Cards (cards5)']];
 
-  // 3. For each card
-  const items = Array.from(ul.children).filter(e => e.tagName === 'LI');
-  items.forEach(li => {
-    const content = li.querySelector('article.cmp-benefitsitem__content');
-    if (!content) return;
-
-    // First column: image (reference existing element only)
-    let imgEl = null;
-    const imgWrapper = content.querySelector('.cmp-benefitsitem__image');
-    if (imgWrapper) {
-      const img = imgWrapper.querySelector('img');
-      if (img) imgEl = img;
+  items.forEach((item) => {
+    // Image extraction (first column)
+    let img = null;
+    const imageContainer = item.querySelector('.cmp-benefitsitem__image');
+    if (imageContainer) {
+      const foundImg = imageContainer.querySelector('img');
+      if (foundImg) img = foundImg;
     }
 
-    // Second column: text content, reference existing elements, preserve semantics
+    // Text content: tagline, headline, and abstract (second column)
     const textElements = [];
+    // Tagline
+    const tagline = item.querySelector('.cmp-benefitsitem__tagline');
+    if (tagline) textElements.push(tagline);
+    // Headline (h3)
+    const headline = item.querySelector('.cmp-benefitsitem__headline');
+    if (headline) textElements.push(headline);
+    // Abstract (contains <p> and <ul>)
+    const abstract = item.querySelector('.cmp-benefitsitem__abstract');
+    if (abstract) textElements.push(abstract);
 
-    // Tagline badge (as div, not hardcoded)
-    const tagline = content.querySelector('.cmp-benefitsitem__tagline');
-    if (tagline) {
-      textElements.push(tagline); // reuse existing element
-    }
-
-    // Headline (use original heading element)
-    const headline = content.querySelector('.cmp-benefitsitem__headline');
-    if (headline) {
-      textElements.push(headline);
-    }
-
-    // Abstract description (paragraph and list)
-    const abstract = content.querySelector('.cmp-benefitsitem__abstract');
-    if (abstract) {
-      // Use all children of abstract preserving order
-      Array.from(abstract.children).forEach(child => {
-        textElements.push(child); // reference original p and ul elements
-      });
-    }
+    // If all text content missing, push empty string to avoid empty cell
+    let textCell = textElements.length ? textElements : '';
 
     cells.push([
-      imgEl || '',
-      textElements
+      img || '',
+      textCell
     ]);
   });
 
-  // 4. Create table block
-  const block = WebImporter.DOMUtils.createTable(cells, document);
-  element.replaceWith(block);
+  // Create and replace with block table
+  const table = WebImporter.DOMUtils.createTable(cells, document);
+  element.replaceWith(table);
 }

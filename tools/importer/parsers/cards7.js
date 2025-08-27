@@ -1,51 +1,59 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Table header: block name as in example
+  // Table header row
   const headerRow = ['Cards (cards7)'];
 
-  // Find the container that holds the cards
+  // Defensive: Find the items container
   const itemsContainer = element.querySelector('.cmp-uniquesellingpoint__items');
-  const cardNodes = itemsContainer ? Array.from(itemsContainer.children) : [];
+  if (!itemsContainer) return;
 
-  const rows = [headerRow];
+  // Get all card elements directly
+  const cardEls = Array.from(itemsContainer.children);
 
-  cardNodes.forEach(cardEl => {
-    // Extract image element
-    let imgEl = null;
-    const imgWrapper = cardEl.querySelector('.cmp-teaser__image');
-    if (imgWrapper) {
-      imgEl = imgWrapper.querySelector('img');
-    }
-    // Compose content cell: Heading, Description (keep original elements, preserve semantic structure)
-    const contentWrapper = cardEl.querySelector('.cmp-teaser__content');
-    const contentEls = [];
-    if (contentWrapper) {
-      // Heading (keep heading level as in source, if present)
-      const titleEl = contentWrapper.querySelector('.cmp-teaser__title');
-      if (titleEl) {
-        contentEls.push(titleEl);
+  // Build rows for each card
+  const rows = cardEls.map(card => {
+    // Each card is expected to have .cmp-teaser
+    const teaser = card.querySelector('.cmp-teaser');
+    if (!teaser) return null;
+
+    // Image/icon cell: get first <img> inside .cmp-teaser__image
+    let imageCell = null;
+    const teaserImageDiv = teaser.querySelector('.cmp-teaser__image');
+    if (teaserImageDiv) {
+      const img = teaserImageDiv.querySelector('img');
+      if (img) {
+        imageCell = img;
       }
-      // Description (all children of .cmp-teaser__description)
-      const descEl = contentWrapper.querySelector('.cmp-teaser__description');
-      if (descEl) {
-        // Ensure we include all children elements, not just <p>
-        Array.from(descEl.childNodes).forEach(child => {
-          if (child.nodeType === 1) {
-            contentEls.push(child);
-          } else if (child.nodeType === 3 && child.textContent.trim()) {
-            // In case there are direct text nodes
-            const span = document.createElement('span');
-            span.textContent = child.textContent;
-            contentEls.push(span);
-          }
+    }
+
+    // Text cell: title [h3] and description [p] from .cmp-teaser__content
+    const contentDiv = teaser.querySelector('.cmp-teaser__content');
+    let textCellContents = [];
+    if (contentDiv) {
+      // Title
+      const title = contentDiv.querySelector('.cmp-teaser__title');
+      if (title) {
+        textCellContents.push(title);
+      }
+      // Description (hold all child nodes of description div)
+      const descDiv = contentDiv.querySelector('.cmp-teaser__description');
+      if (descDiv) {
+        Array.from(descDiv.childNodes).forEach(node => {
+          // Retain formatting, so if it's a text node or an element, include as-is
+          textCellContents.push(node);
         });
       }
     }
-    // Add the row with image and content
-    rows.push([imgEl, contentEls]);
-  });
 
-  // Create the block table
-  const block = WebImporter.DOMUtils.createTable(rows, document);
-  element.replaceWith(block);
+    // If there is no title and description, skip this card
+    if (!imageCell && textCellContents.length === 0) return null;
+
+    return [imageCell, textCellContents];
+  }).filter(Boolean);
+
+  // Compose the table cells
+  const tableCells = [headerRow, ...rows];
+  const table = WebImporter.DOMUtils.createTable(tableCells, document);
+
+  element.replaceWith(table);
 }
