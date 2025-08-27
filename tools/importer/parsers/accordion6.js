@@ -1,59 +1,66 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the accordion block. We look for the cmp-accordion class inside the provided element.
-  const accordion = element.querySelector('.cmp-accordion');
-  if (!accordion) return;
+  // Table header as specified
+  const headerRow = ['Accordion'];
 
-  // Prepare header row
-  const rows = [['Accordion']];
+  // Find the main accordion block
+  let accordion = element.querySelector('.cmp-accordion');
+  if (!accordion) {
+    // Try fallback selector
+    accordion = element.querySelector('[data-cmp-hook-accordion]');
+    if (!accordion) return; // nothing to do
+  }
 
-  // Get all accordion items
+  // Get all items
   const items = accordion.querySelectorAll('.cmp-accordion__item');
-  items.forEach((item) => {
-    // Title cell: take the button's text (inside .cmp-accordion__title)
-    const button = item.querySelector('.cmp-accordion__button');
-    let titleSpan = button && button.querySelector('.cmp-accordion__title');
-    let titleNode;
+  const rows = [];
+
+  items.forEach(item => {
+    // 1. Title cell: Use the actual title span (preserves formatting)
+    let titleCell;
+    const titleSpan = item.querySelector('.cmp-accordion__title');
     if (titleSpan) {
-      // Use the span directly from the live DOM (do NOT clone)
-      titleNode = titleSpan;
+      titleCell = titleSpan; // reference only, do NOT clone
     } else {
-      // Fallback: use button text
-      titleNode = document.createElement('span');
-      titleNode.textContent = button ? button.textContent.trim() : '';
+      // fallback: take button text
+      const button = item.querySelector('button');
+      titleCell = document.createElement('span');
+      titleCell.textContent = button ? button.textContent.trim() : '';
     }
 
-    // Content cell: find the panel and all its visible content
+    // 2. Content cell: Use all content inside panel
+    let contentCell;
     const panel = item.querySelector('[data-cmp-hook-accordion="panel"]');
-    let contentNodes = [];
     if (panel) {
-      // Find the text container (may be .text or .cmp-text) and take its children
-      // We'll collect all direct child nodes of .cmp-text inside .text
-      const text = panel.querySelector('.cmp-text');
-      if (text) {
-        Array.from(text.childNodes).forEach((node) => {
-          if (node.nodeType === Node.ELEMENT_NODE) {
-            contentNodes.push(node);
-          }
-        });
-      } else {
-        // Fallback: push all direct children of panel
-        Array.from(panel.childNodes).forEach((node) => {
-          if (node.nodeType === Node.ELEMENT_NODE) {
-            contentNodes.push(node);
-          }
-        });
+      // Find the .cmp-text node inside the panel (if any)
+      let contentBox = panel.querySelector('.cmp-text');
+      if (!contentBox) {
+        // Sometimes content is directly under .text
+        contentBox = panel.querySelector('.text');
       }
+      if (!contentBox) {
+        // fallback: everything inside panel
+        contentBox = panel;
+      }
+      // Collect all relevant nodes inside contentBox
+      const nodes = Array.from(contentBox.childNodes).filter(node => {
+        if (node.nodeType === Node.ELEMENT_NODE) return true;
+        if (node.nodeType === Node.TEXT_NODE && node.textContent.trim().length > 0) return true;
+        return false;
+      });
+      // If just one node, use that, if multiple, use array
+      contentCell = nodes.length === 1 ? nodes[0] : nodes;
+    } else {
+      contentCell = '';
     }
-    // If there's only one content node, use it directly
-    rows.push([
-      titleNode,
-      contentNodes.length === 1 ? contentNodes[0] : contentNodes
-    ]);
+
+    // Push row
+    rows.push([titleCell, contentCell]);
   });
 
-  // Create the block table
-  const table = WebImporter.DOMUtils.createTable(rows, document);
-  // Replace the original element with the table
-  element.replaceWith(table);
+  // Compose block table
+  const cells = [headerRow, ...rows];
+  const block = WebImporter.DOMUtils.createTable(cells, document);
+  // Replace the original element
+  element.replaceWith(block);
 }

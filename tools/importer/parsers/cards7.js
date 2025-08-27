@@ -1,51 +1,38 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Table header: block name as in example
+  // 1. Table header matches example, no Section Metadata block in example
   const headerRow = ['Cards (cards7)'];
 
-  // Find the container that holds the cards
+  // 2. Get all card items in this block
   const itemsContainer = element.querySelector('.cmp-uniquesellingpoint__items');
-  const cardNodes = itemsContainer ? Array.from(itemsContainer.children) : [];
+  if (!itemsContainer) return;
 
-  const rows = [headerRow];
+  const cards = Array.from(itemsContainer.children).filter(
+    c => c.classList.contains('cmp-uniquesellingpoint__item')
+  );
 
-  cardNodes.forEach(cardEl => {
-    // Extract image element
-    let imgEl = null;
-    const imgWrapper = cardEl.querySelector('.cmp-teaser__image');
-    if (imgWrapper) {
-      imgEl = imgWrapper.querySelector('img');
+  const rows = cards.map(card => {
+    // image: first img inside .cmp-teaser__image
+    const imgEl = card.querySelector('.cmp-teaser__image img');
+    // text: all children of .cmp-teaser__content (h3, .cmp-teaser__description)
+    const content = card.querySelector('.cmp-teaser__content');
+    let textEls = [];
+    if (content) {
+      // Reference the title
+      const title = content.querySelector('.cmp-teaser__title');
+      if (title) textEls.push(title);
+      // Reference the description
+      const desc = content.querySelector('.cmp-teaser__description');
+      if (desc) textEls.push(desc);
     }
-    // Compose content cell: Heading, Description (keep original elements, preserve semantic structure)
-    const contentWrapper = cardEl.querySelector('.cmp-teaser__content');
-    const contentEls = [];
-    if (contentWrapper) {
-      // Heading (keep heading level as in source, if present)
-      const titleEl = contentWrapper.querySelector('.cmp-teaser__title');
-      if (titleEl) {
-        contentEls.push(titleEl);
-      }
-      // Description (all children of .cmp-teaser__description)
-      const descEl = contentWrapper.querySelector('.cmp-teaser__description');
-      if (descEl) {
-        // Ensure we include all children elements, not just <p>
-        Array.from(descEl.childNodes).forEach(child => {
-          if (child.nodeType === 1) {
-            contentEls.push(child);
-          } else if (child.nodeType === 3 && child.textContent.trim()) {
-            // In case there are direct text nodes
-            const span = document.createElement('span');
-            span.textContent = child.textContent;
-            contentEls.push(span);
-          }
-        });
-      }
-    }
-    // Add the row with image and content
-    rows.push([imgEl, contentEls]);
+    // Always put image in first cell, text in second
+    return [imgEl, textEls];
   });
 
-  // Create the block table
-  const block = WebImporter.DOMUtils.createTable(rows, document);
-  element.replaceWith(block);
+  // 3. Build table: header row + each card row
+  const cells = [headerRow, ...rows];
+  const table = WebImporter.DOMUtils.createTable(cells, document);
+
+  // 4. Replace original block with table
+  element.replaceWith(table);
 }
