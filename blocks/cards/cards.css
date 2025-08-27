@@ -25,3 +25,139 @@
   aspect-ratio: 4 / 3;
   object-fit: cover;
 }
+
+
+.cards.cards2 > ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  align-items: stretch;
+}
+
+@media (width <= 950px) {
+  .cards.cards2 > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width <= 650px) {
+  .cards.cards2 > ul {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 0 4px;
+  }
+}
+
+/* Card styles */
+.cards.cards2 > ul > li {
+  background: #fff;
+  border: 1px solid #e1e6ef;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgb(26 35 82 / 4%);
+  min-height: 420px;
+  height: 100%;
+  display: grid;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  padding: 24px;
+  box-sizing: border-box;
+  transition: box-shadow 0.2s, border-color 0.2s;
+  grid-template-rows: auto auto 1fr;
+  grid-template-areas:
+    "badge"
+    "image"
+    "body";
+}
+
+/* Inner stacking for badge, image, and card body (using CSS Grid for reordering) */
+
+.cards.cards2 .cards-card-body p:first-child {
+  grid-area: badge;
+  background: #16b374;
+  color: #fff;
+  font-weight: bold;
+  font-size: 15px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  padding: 6px 16px;
+  display: inline-block;
+  margin: 0 0 14px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 1px 2px rgb(26 35 82 / 6%);
+  align-self: flex-start;
+}
+
+.cards.cards2 > ul > li > .cards-card-image {
+  grid-area: image;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 16px;
+}
+
+.cards.cards2 > ul > li > .cards-card-body {
+  grid-area: body;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  flex: 1 1 auto;
+}
+
+/* Image sizing */
+.cards.cards2 > ul > li img {
+  max-height: 74px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Heading styles */
+.cards.cards2 .cards-card-body h3 {
+  font-size: 20px;
+  color: #1a2352;
+  font-weight: bold;
+  margin: 0 0 10px;
+  line-height: 1.22;
+}
+
+/* Paragraph and body text */
+.cards.cards2 .cards-card-body p:not(:first-child) {
+  font-size: 15px;
+  color: #697089;
+  margin: 0 0 8px;
+  line-height: 1.5;
+}
+
+/* List styles for features */
+.cards.cards2 .cards-card-body ul {
+  padding-left: 0;
+  margin: 10px 0 0;
+  list-style: disc inside;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cards.cards2 .cards-card-body ul li {
+  font-size: 15px;
+  color: #1a2352;
+  margin-bottom: 6px;
+  padding-left: 0;
+  line-height: 1.45;
+}
+
+.cards.cards2 .cards-card-body ul li::marker {
+  color: #1976d2;
+  font-size: 17px;
+}
+
+/* Tighter space between badge, image, heading, and body for original look */
+.cards.cards2 > ul > li > .cards-card-body p:first-child + h3 {
+  margin-top: 0;
+}
